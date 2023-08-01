@@ -1,6 +1,6 @@
 ﻿namespace SimplStudy.Models.DataBaseModels
 {
-    public class AdressesPoint
+    public class AddressesPoint
     {
         public int Id { get; set; }
         public string? Address { get; set; }

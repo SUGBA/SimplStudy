@@ -6,6 +6,8 @@ namespace SimplStudy
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            var connectionsString = builder.Configuration.GetSection("DefaultConnection");
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
