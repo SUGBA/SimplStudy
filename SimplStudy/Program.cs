@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using SimplStudy.DBContexts;
+
 namespace SimplStudy
 {
     public class Program
@@ -6,7 +9,8 @@ namespace SimplStudy
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var connectionsString = builder.Configuration.GetSection("DefaultConnection");
+            string connectionsString = builder.Configuration.GetConnectionString("DefaultConnection")!;
+            builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionsString));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -28,9 +32,15 @@ namespace SimplStudy
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+            //app.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapGet("/", async (HttpContext context, ApplicationContext db) =>
+            {
+                var offers = db.Offers.Include(x => x.ActiveProduct).Select(x => x.ActiveProduct!.Name).ToList();
+                await context.Response.WriteAsync(string.Join("\n", offers));
+            });
 
             app.Run();
         }
