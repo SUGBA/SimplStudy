@@ -1,4 +1,6 @@
-﻿namespace SimplStudy.Models.DataBaseModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SimplStudy.Models.DataBaseModels
 {
     public class AddressesPoint
     {
@@ -6,6 +8,11 @@
         public string? Address { get; set; }
 
         public Manager? ActiveManager { get; set; }
-        public int ManagerId { get; set; }
+
+        public Store? AcitveStore { get; set; }
+        public int StoreId { get; set; }
+
+        public Buyer? AcitveBuyer { get; set; }
+        public int BuyerId { get; set; }
     }
 }

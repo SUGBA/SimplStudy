@@ -5,7 +5,9 @@
         public int Id{ get; set; }
         public string? Name { get; set; }
 
-        public int AdressesPointId { get; set; }
+        public Seller? ActiveSeller { get; set; }
+        public int SellerId { get; set; }
+
         public AddressesPoint? Address { get; set; }
     }
 }

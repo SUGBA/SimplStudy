@@ -7,7 +7,6 @@
         public int Price { get; set; }
         public float Weight { get; set; }
 
-        public int CategoryId { get; set; }
         public Category? ActiveCategory { get; set; }
 
         public Offer? ActiveOffer { get; set; }

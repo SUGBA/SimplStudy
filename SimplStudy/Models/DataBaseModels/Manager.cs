@@ -6,7 +6,7 @@
         public string? Name { get; set; }
         public int HoursProduction { get; set; }
 
-        public AddressesPoint? Adress { get; set; }
-        public int AdressesPointsId { get; set; }
+        public AddressesPoint? Address { get; set; }
+        public int AddressesPointId { get; set; }
     }
 }

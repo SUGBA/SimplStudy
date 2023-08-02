@@ -3,21 +3,14 @@
     public class Offer
     {
         public int Id { get; set; }
-        public int Count { get; set; }
 
-        public int DeliveryId { get; set; }
-        public Delivery? ActiveDelivery { get; set; }
+        public List<Delivery>? Deliverys { get; set; }
 
-        public int SellerId { get; set; }
-        public Seller? ActiveSeller { get; set; }
+        public List<Seller>? Sellers { get; set; }
 
-        public int BuyerId { get; set; }
-        public Buyer? ActiveBuyer { get; set; }
+        public List<Buyer>? Buyers { get; set; }
 
-        public int ProductId { get; set; }
-        public Product? ActiveProduct { get; set; }
+        public List<Product>? Products { get; set; }
 
-        public TotalOffer? ActiveTotalOffer { get; set; }
-        public int TotalOfferId { get; set; }
     }
 }
