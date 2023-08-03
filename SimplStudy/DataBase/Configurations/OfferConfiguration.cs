@@ -18,8 +18,14 @@ namespace SimplStudy.DataBase.Configurations
             var offer7 = new Offer() { Id = 7 };
             var offer8 = new Offer() { Id = 8 };
 
-            builder.HasData(offer1, offer2, offer3, offer4,
-                            offer5, offer6, offer7, offer8);
+            builder.HasData(offer1,
+                            offer2,
+                            offer3,
+                            offer4,
+                            offer5,
+                            offer6,
+                            offer7,
+                            offer8);
         }
     }
 }

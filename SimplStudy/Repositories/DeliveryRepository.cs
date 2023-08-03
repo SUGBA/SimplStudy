@@ -12,6 +12,7 @@ namespace SimplStudy.Repositories
         {
             this._context = _context;
         }
+
         public List<Delivery> GetDeliveries() => _context.Deliverys.ToList();
     }
 }

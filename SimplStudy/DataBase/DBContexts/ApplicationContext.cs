@@ -8,16 +8,24 @@ namespace SimplStudy.DBContexts
     public class ApplicationContext : DbContext
     {
         public DbSet<Offer> Offers { get; set; }
+
         public DbSet<Delivery> Deliverys { get; set; }
+
         public DbSet<Seller> Sellers { get; set; }
+
         public DbSet<Buyer> Buyers { get; set; }
+
         public DbSet<Product> Products { get; set; }
+
         public DbSet<Category> Categorys { get; set; }
+
         public DbSet<Store> Stores { get; set; }
+
         public DbSet<AddressesPoint> AddressesPoints { get; set; }
+
         public DbSet<Manager> Managers { get; set; }
 
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) 
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
             Database.EnsureCreated();
         }

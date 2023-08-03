@@ -12,6 +12,7 @@ namespace SimplStudy.Repositories
         {
             this._context = _context;
         }
+
         public List<Manager> GetManagers() => _context.Managers.ToList();
     }
 }

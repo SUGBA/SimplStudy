@@ -61,38 +61,6 @@ namespace SimplStudy
                 name: "AllFromStore",
                 pattern: "{controller=Store}/{action=All}/{id?}");
 
-            app.MapControllerRoute(
-              name: "AllFromSeller",
-              pattern: "{controller=Seller}/{action=All}/{id?}");
-
-            app.MapControllerRoute(
-              name: "AllFromProduct",
-              pattern: "{controller=Product}/{action=All}/{id?}");
-
-            app.MapControllerRoute(
-              name: "AllFromManager",
-              pattern: "{controller=Manager}/{action=All}/{id?}");
-
-            app.MapControllerRoute(
-              name: "AllFromDelivery",
-              pattern: "{controller=Delivery}/{action=All}/{id?}");
-
-            app.MapControllerRoute(
-              name: "AllFromCategory",
-              pattern: "{controller=Category}/{action=All}/{id?}");
-
-            app.MapControllerRoute(
-              name: "AllFromBuyer",
-              pattern: "{controller=Buyer}/{action=All}/{id?}");
-
-            app.MapControllerRoute(
-              name: "AllFromAddressesPoint",
-              pattern: "{controller=AddressesPoint}/{action=All}/{id?}");
-
-            app.MapControllerRoute(
-              name: "AllFromOffer",
-              pattern: "{controller=Offer}/{action=All}/{id?}");
-
             app.Run();
         }
     }

@@ -12,7 +12,9 @@ namespace SimplStudy.Repositories
         {
             this._context = _context;
         }
+
         public List<Offer> GetOffers() => _context.Offers.ToList();
+
         public async Task AddOffer(Offer offer)
         {
             if (offer is not null && _context.Offers.FirstOrDefault(x => x.Id == offer.Id) is null)
@@ -21,6 +23,7 @@ namespace SimplStudy.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
         public async Task UpdateOffer(int ChangebaleOfferId, Offer NewOffer)
         {
             var ReceivedOffer = _context.Offers.Where(x => x.Id == ChangebaleOfferId).FirstOrDefault();
@@ -33,6 +36,7 @@ namespace SimplStudy.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
         public async Task DelOffer(int id)
         {
             var offer = _context.Offers.FirstOrDefault(o => o.Id == id);

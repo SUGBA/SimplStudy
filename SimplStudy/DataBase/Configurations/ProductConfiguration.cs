@@ -19,9 +19,15 @@ namespace SimplStudy.DataBase.Configurations
             var product8 = new Product() { Id = 8, Name = "Polar Grit X", OfferId = 8 };
             var product9 = new Product() { Id = 9, Name = "Garmin Forerunner 55", OfferId = 8 };
 
-            builder.HasData(product1, product2, product3,
-                            product4, product5, product6,
-                            product7, product8, product9);
+            builder.HasData(product1,
+                            product2,
+                            product3,
+                            product4,
+                            product5,
+                            product6,
+                            product7,
+                            product8,
+                            product9);
         }
     }
 }

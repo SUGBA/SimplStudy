@@ -13,6 +13,7 @@ namespace SimplStudy.Repositories
         {
             this._context = _context;
         }
+
         public List<Store> GetStores() => _context.Stores.ToList();
 
     }
