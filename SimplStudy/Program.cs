@@ -2,8 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using SimplStudy.DataBase.Configurations;
 using SimplStudy.DBContexts;
 using SimplStudy.Models.DataBaseModels;
+using SimplStudy.Repositories;
+using SimplStudy.Repositories.Interfaces;
+using SimplStudy.Services;
 using SimplStudy.Services.Interfaces;
-using SimplStudy.Services.Realizations;
 
 namespace SimplStudy
 {
@@ -18,7 +20,25 @@ namespace SimplStudy
 
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddScoped<ICRUDService, CRUDService>();
+            builder.Services.AddTransient<IAddressesPointRepository, AddressesPointRepository>();
+            builder.Services.AddTransient<IBuyerRepository, BuyerRepository>();
+            builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddTransient<IDeliveryRepository, DeliveryRepository>();
+            builder.Services.AddTransient<IManagerRepository, ManagerRepository>();
+            builder.Services.AddTransient<IOfferRepository, OfferRepository>();
+            builder.Services.AddTransient<IProductRepository, ProductRepository>();
+            builder.Services.AddTransient<ISellerRepository, SellerRepository>();
+            builder.Services.AddTransient<IStoreRepository, StoreRepository>();
+
+            builder.Services.AddTransient<IAddressesPointService, AddressesPointService>();
+            builder.Services.AddTransient<IBuyerService, BuyerService>();
+            builder.Services.AddTransient<ICategoryService, CategoryService>();
+            builder.Services.AddTransient<IDeliveryService, DeliveryService>();
+            builder.Services.AddTransient<IManagerService, ManagerService>();
+            builder.Services.AddTransient<IOfferService, OfferService>();
+            builder.Services.AddTransient<IProductService, ProductService>();
+            builder.Services.AddTransient<ISellerService, SellerService>();
+            builder.Services.AddTransient<IStoreService, StoreService>();
 
             var app = builder.Build();
 
@@ -37,49 +57,41 @@ namespace SimplStudy
 
             app.UseAuthorization();
 
-            //app.MapControllerRoute(
-            //    name: "default",
-            //    pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapControllerRoute(
+                name: "AllFromStore",
+                pattern: "{controller=Store}/{action=All}/{id?}");
 
-            app.MapGet("/", async (HttpContext context, ApplicationContext db, ICRUDService crudService) =>
-            {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
-                var offer = new Offer()
-                {
-                    Deliverys = new List<Delivery>()
-                    {
-                        new Delivery() { DateOrder = DateTime.UtcNow.AddDays(-2), DateReceipt = DateTime.UtcNow.AddDays(0) }
-                    },
-                    Buyers = new List<Buyer>()
-                    {
-                        new Buyer() { Name = "Орлов К.К." }
-                    },
-                    Products = new List<Product>()
-                    {
-                        new Product() { Name = "COROS Apex 46mm" }
-                    },
-                    Sellers = new List<Seller>()
-                    {
-                        new Seller() { Name = "Чичкин Ч.Ч." }
-                     }
-                };
+            app.MapControllerRoute(
+              name: "AllFromSeller",
+              pattern: "{controller=Seller}/{action=All}/{id?}");
 
-                string result1 = string.Join(" | ", crudService.GetProducts().Select(x => x.Name).ToList());
-                string of1 = string.Join(" | ", crudService.GetOffers().Select(x => x.Id).ToList());
+            app.MapControllerRoute(
+              name: "AllFromProduct",
+              pattern: "{controller=Product}/{action=All}/{id?}");
 
-                await crudService.AddOffer(offer);
+            app.MapControllerRoute(
+              name: "AllFromManager",
+              pattern: "{controller=Manager}/{action=All}/{id?}");
 
-                string result2 = string.Join(" | ", crudService.GetProducts().Select(x => x.Name).ToList());
-                string of2 = string.Join(" | ", crudService.GetOffers().Select(x => x.Id).ToList());
+            app.MapControllerRoute(
+              name: "AllFromDelivery",
+              pattern: "{controller=Delivery}/{action=All}/{id?}");
 
-                await crudService.DellOffer(offer);
+            app.MapControllerRoute(
+              name: "AllFromCategory",
+              pattern: "{controller=Category}/{action=All}/{id?}");
 
-                string result3 = string.Join(" | ", crudService.GetProducts().Select(x => x.Name).ToList());
-                string of3 = string.Join(" | ", crudService.GetOffers().Select(x => x.Id).ToList());
+            app.MapControllerRoute(
+              name: "AllFromBuyer",
+              pattern: "{controller=Buyer}/{action=All}/{id?}");
 
-                await context.Response.WriteAsync(string.Concat(result1, "\n", of1, "\n", result2, "\n", of2, "\n", result3, "\n", of3));
-            });
+            app.MapControllerRoute(
+              name: "AllFromAddressesPoint",
+              pattern: "{controller=AddressesPoint}/{action=All}/{id?}");
+
+            app.MapControllerRoute(
+              name: "AllFromOffer",
+              pattern: "{controller=Offer}/{action=All}/{id?}");
 
             app.Run();
         }

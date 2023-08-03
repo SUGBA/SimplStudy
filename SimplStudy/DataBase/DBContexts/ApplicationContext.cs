@@ -14,10 +14,13 @@ namespace SimplStudy.DBContexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categorys { get; set; }
         public DbSet<Store> Stores { get; set; }
-        public DbSet<AddressesPoint> AdressesPoints { get; set; }
+        public DbSet<AddressesPoint> AddressesPoints { get; set; }
         public DbSet<Manager> Managers { get; set; }
 
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) 
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
