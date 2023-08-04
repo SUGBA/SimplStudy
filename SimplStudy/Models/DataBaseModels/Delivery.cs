@@ -8,8 +8,6 @@
 
         public DateTime DateReceipt { get; set; }
 
-        public int OfferId { get; set; }
-
-        public Offer? ActiveOffer { get; set; }
+        public List<Item> Items { get; set; } = new List<Item>();
     }
 }

@@ -6,10 +6,10 @@
 
         public string? Name { get; set; }
 
-        public AddressesPoint? Address { get; set; }
+        public AddressesPoint? ActiveAddressesPoint { get; set; }
 
-        public Offer? ActiveOffer { get; set; }
+        public int AddressesPointId { get; set; }
 
-        public int OfferId { get; set; }
+        public List<Item> Items { get; set; } = new List<Item>();
     }
 }

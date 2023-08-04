@@ -8,7 +8,7 @@
 
         public int HoursProduction { get; set; }
 
-        public AddressesPoint? Address { get; set; }
+        public AddressesPoint? ActiveAddressesPoint { get; set; }
 
         public int AddressesPointId { get; set; }
     }

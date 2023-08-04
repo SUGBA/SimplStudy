@@ -9,10 +9,10 @@ namespace SimplStudy.DataBase.Configurations
     {
         public void Configure(EntityTypeBuilder<Store> builder)
         {
-            var store1 = new Store() { Id = 1, Name = "Shop1", SellerId = 1 };
-            var store2 = new Store() { Id = 2, Name = "Shop2", SellerId = 2 };
-            var store3 = new Store() { Id = 3, Name = "Shop3", SellerId = 3 };
-            var store4 = new Store() { Id = 4, Name = "Shop4", SellerId = 4 };
+            var store1 = new Store() { Id = 1, Name = "Shop1", SellerId = 1, AddressesPointId = 1 };
+            var store2 = new Store() { Id = 2, Name = "Shop2", SellerId = 2, AddressesPointId = 2 };
+            var store3 = new Store() { Id = 3, Name = "Shop3", SellerId = 3, AddressesPointId = 3 };
+            var store4 = new Store() { Id = 4, Name = "Shop4", SellerId = 4, AddressesPointId = 4 };
 
             builder.HasData(store1, store2, store3, store4);
         }

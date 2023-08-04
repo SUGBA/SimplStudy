@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SimplStudy.DBContexts;
 using SimplStudy.Models.DataBaseModels;
+using SimplStudy.Services;
 using SimplStudy.Services.Interfaces;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -7,16 +10,21 @@ using System.Text.Unicode;
 
 namespace SimplStudy.Controllers
 {
-    public class OfferController : Controller
+    public class OrderController : Controller
     {
-        private readonly IOfferService _offerService;
-        public OfferController(IOfferService offerService)
+        private readonly IOrderService _orderService;
+
+        private readonly ApplicationContext _context;
+
+        public OrderController(IOrderService orderService, ApplicationContext context)
         {
-            _offerService = offerService;
+            _orderService = orderService;
+            _context = context;
         }
+
         public IActionResult All()
         {
-            var result = _offerService.GetOffers();
+            var result = _orderService.GetOrders();
             var options = new JsonSerializerOptions()
             {
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
@@ -25,18 +33,21 @@ namespace SimplStudy.Controllers
             };
             return Json(result, options);
         }
+
         public IActionResult Del(int id)
         {
-            _offerService.DellOffer(id);
+            _orderService.DelOrder(id);
             return RedirectToAction("All");
         }
-        public void Add(Offer offer)
+
+        public void Add(Order order)
         {
-            _offerService.AddOffer(offer);
+            _orderService.AddOrder(order);
         }
-        public void Update(int ChangebaleOfferId, Offer NewOffer)
+
+        public void Update(int ChangebaleOrderId, Order NewOrder)
         {
-            _offerService.UpdateOffer(ChangebaleOfferId, NewOffer);
+            _orderService.UpdateOrder(ChangebaleOrderId, NewOrder);
         }
     }
 }

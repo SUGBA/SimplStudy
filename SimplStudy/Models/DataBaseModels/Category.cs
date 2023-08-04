@@ -6,8 +6,6 @@
 
         public string? Name { get; set; }
 
-        public int ProductId { get; set; }
-
-        public Product? ActiveProduct { get; set; }
+        public List<Product> Products { get; set; } = new List<Product>();
     }
 }

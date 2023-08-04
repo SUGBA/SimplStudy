@@ -3,13 +3,11 @@
     public class Seller
     {
         public int Id { get; set; }
-       
+
         public string? Name { get; set; }
 
-        public Store? ActiveStore { get; set; }
+        public List<Store> Stores { get; set; } = new List<Store>();
 
-        public Offer? ActiveOffer { get; set; }
-        
-        public int OfferId { get; set; }
+        public List<Item> Items { get; set; } = new List<Item>();
     }
 }

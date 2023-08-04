@@ -1,4 +1,6 @@
-﻿namespace SimplStudy.Models.DataBaseModels
+﻿using System.Diagnostics;
+
+namespace SimplStudy.Models.DataBaseModels
 {
     public class Store
     {
@@ -10,6 +12,8 @@
 
         public int SellerId { get; set; }
 
-        public AddressesPoint? Address { get; set; }
+        public AddressesPoint? ActiveAddressesPoint { get; set; }
+
+        public int AddressesPointId { get; set; }
     }
 }

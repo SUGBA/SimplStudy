@@ -8,14 +8,10 @@ namespace SimplStudy.Models.DataBaseModels
 
         public string? Address { get; set; }
 
-        public Manager? ActiveManager { get; set; }
+        public List<Manager> Managers { get; set; } = new List<Manager>();
 
-        public Store? AcitveStore { get; set; }
+        public List<Store> Stores { get; set; } = new List<Store>();
 
-        public int StoreId { get; set; }
-
-        public Buyer? AcitveBuyer { get; set; }
-
-        public int BuyerId { get; set; }
+        public List<Buyer> Buyers { get; set; } = new List<Buyer>();
     }
 }

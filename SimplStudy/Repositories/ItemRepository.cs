@@ -4,15 +4,15 @@ using SimplStudy.Repositories.Interfaces;
 
 namespace SimplStudy.Repositories
 {
-    public class AddressesPointRepository : IAddressesPointRepository
+    public class ItemRepository : IItemRepository
     {
         private readonly ApplicationContext _context;
 
-        public AddressesPointRepository(ApplicationContext _context)
+        public ItemRepository(ApplicationContext _context)
         {
             this._context = _context;
         }
 
-        public List<AddressesPoint> GetAddressesPoints() => _context.AdressesPoints.ToList();
+        public List<Item> GetItems() => _context.Items.ToList();
     }
 }

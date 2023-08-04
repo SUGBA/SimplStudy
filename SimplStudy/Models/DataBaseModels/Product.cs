@@ -12,8 +12,8 @@
 
         public Category? ActiveCategory { get; set; }
 
-        public Offer? ActiveOffer { get; set; }
+        public int CategoryId { get; set; }
 
-        public int OfferId { get; set; }
+        public List<Item> Items { get; set; } = new List<Item>();
     }
 }

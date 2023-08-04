@@ -30,8 +30,15 @@ namespace SimplStudy.DataBase.Configurations
                 Name = "Репин Б.В.",
                 AddressesPointId = 3
             };
+            var manager4 = new Manager()
+            {
+                Id = 4,
+                HoursProduction = 90,
+                Name = "Жабин У.А.",
+                AddressesPointId = 4
+            };
 
-            builder.HasData(manager1, manager2, manager3);
+            builder.HasData(manager1, manager2, manager3, manager4);
         }
     }
 }
