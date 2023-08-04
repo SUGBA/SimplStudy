@@ -13,7 +13,7 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
-        public List<Category> GetCategories() => _context.Categorys.ToList();
+        public List<Category> GetCategories() => _context.Categories.ToList();
 
     }
 }

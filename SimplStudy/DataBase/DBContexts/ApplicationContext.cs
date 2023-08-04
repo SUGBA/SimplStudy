@@ -9,7 +9,7 @@ namespace SimplStudy.DBContexts
     {
         public DbSet<Offer> Offers { get; set; }
 
-        public DbSet<Delivery> Deliverys { get; set; }
+        public DbSet<Delivery> Deliveries { get; set; }
 
         public DbSet<Seller> Sellers { get; set; }
 
@@ -17,7 +17,7 @@ namespace SimplStudy.DBContexts
 
         public DbSet<Product> Products { get; set; }
 
-        public DbSet<Category> Categorys { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public DbSet<Store> Stores { get; set; }
 
