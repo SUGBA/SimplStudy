@@ -4,6 +4,7 @@ using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Repositories.Interfaces;
 using System;
 
+
 namespace SimplStudy.Repositories
 {
     public class OrderRepository : IOrderRepository
@@ -15,7 +16,12 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
-        public List<Order> GetOrders() => _context.Orders.ToList();
+        public List<Order> GetOrders()
+        {
+            //var result = _context.Orders.Include(x => x.Items).ThenInclude(x => x.ActiveProduct).ToList();
+            var result = _context.Orders.ToList();
+            return result;
+        }
 
         public async Task AddOrder(Order order)
         {

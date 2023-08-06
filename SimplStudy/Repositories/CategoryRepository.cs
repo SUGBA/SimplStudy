@@ -14,6 +14,5 @@ namespace SimplStudy.Repositories
         }
 
         public List<Category> GetCategories() => _context.Categories.ToList();
-
     }
 }
