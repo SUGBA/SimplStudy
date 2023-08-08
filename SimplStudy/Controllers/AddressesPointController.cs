@@ -9,10 +9,12 @@ namespace SimplStudy.Controllers
     public class AddressesPointController : Controller
     {
         private readonly IAddressesPointService _addressesPointService;
+        
         public AddressesPointController(IAddressesPointService addressesPointService)
         {
             _addressesPointService = addressesPointService;
         }
+        
         [HttpGet]
         public IActionResult All()
         {

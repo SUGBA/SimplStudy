@@ -9,10 +9,12 @@ namespace SimplStudy.Controllers
     public class BuyerController : Controller
     {
         private readonly IBuyerService _buyerService;
+        
         public BuyerController(IBuyerService buyerService)
         {
             _buyerService = buyerService;
         }
+        
         [HttpGet]
         public IActionResult All()
         {

@@ -9,10 +9,12 @@ namespace SimplStudy.Controllers
     public class StoreController : Controller
     {
         private readonly IStoreService _storeService;
+
         public StoreController(IStoreService storeService)
         {
             _storeService = storeService;
         }
+        
         [HttpGet]
         public IActionResult All()
         {

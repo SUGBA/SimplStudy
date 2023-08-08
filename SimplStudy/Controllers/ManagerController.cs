@@ -9,10 +9,12 @@ namespace SimplStudy.Controllers
     public class ManagerController : Controller
     {
         private readonly IManagerService _managerService;
+        
         public ManagerController(IManagerService managerService)
         {
             _managerService = managerService;
         }
+        
         [HttpGet]
         public IActionResult All()
         {

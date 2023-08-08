@@ -9,10 +9,12 @@ namespace SimplStudy.Controllers
     public class DeliveryController : Controller
     {
         private readonly IDeliveryService _deliveryService;
+        
         public DeliveryController(IDeliveryService deliveryService)
         {
             _deliveryService = deliveryService;
         }
+        
         [HttpGet]
         public IActionResult All()
         {
