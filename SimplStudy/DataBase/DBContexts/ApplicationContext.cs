@@ -27,48 +27,11 @@ namespace SimplStudy.DBContexts
 
         public DbSet<Manager> Managers { get; set; }
 
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
-        {
-            //Database.EnsureDeleted();
-            //Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-
-        }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Item>()
-                        .HasKey(e => new { e.ProductId, e.BuyerId, e.SellerId, e.DeliveryId });
-            modelBuilder.Entity<Item>()
-                        .HasOne(x => x.ActiveDelivery)
-                        .WithMany(y => y.Items)
-                        .HasForeignKey(x => x.DeliveryId);
-            modelBuilder.Entity<Item>()
-                        .HasOne(x => x.ActiveSeller)
-                        .WithMany(y => y.Items)
-                        .HasForeignKey(x => x.SellerId);
-            modelBuilder.Entity<Item>()
-                        .HasOne(x => x.ActiveProduct)
-                        .WithMany(y => y.Items)
-                        .HasForeignKey(x => x.ProductId);
-            modelBuilder.Entity<Item>()
-                        .HasOne(x => x.ActiveBuyer)
-                        .WithMany(y => y.Items)
-                        .HasForeignKey(x => x.BuyerId);
-
-            modelBuilder.ApplyConfiguration(new OrderConfiguration());
-            modelBuilder.ApplyConfiguration(new ItemConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new BuyerConfiguration());
-            modelBuilder.ApplyConfiguration(new SellerConfiguration());
-            modelBuilder.ApplyConfiguration(new StoreConfiguration());
-            modelBuilder.ApplyConfiguration(new AddressesPointConfiguration());
-            modelBuilder.ApplyConfiguration(new ManagerConfiguration());
-            modelBuilder.ApplyConfiguration(new DeliveryConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
     }
 }
