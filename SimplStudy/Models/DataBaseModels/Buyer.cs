@@ -10,6 +10,6 @@
 
         public int AddressesPointId { get; set; }
 
-        public List<Item> Items { get; set; } = new List<Item>();
+        public IEnumerable<Item> Items { get; set; } = Array.Empty<Item>();
     }
 }

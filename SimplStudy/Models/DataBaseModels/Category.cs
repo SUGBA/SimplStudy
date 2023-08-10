@@ -6,6 +6,6 @@
 
         public string? Name { get; set; }
 
-        public List<Product> Products { get; set; } = new List<Product>();
+        public IEnumerable<Product> Products { get; set; } = Array.Empty<Product>();
     }
 }

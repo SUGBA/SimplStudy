@@ -6,8 +6,8 @@
 
         public string? Name { get; set; }
 
-        public List<Store> Stores { get; set; } = new List<Store>();
+        public IEnumerable<Store> Stores { get; set; } = Array.Empty<Store>();
 
-        public List<Item> Items { get; set; } = new List<Item>();
+        public IEnumerable<Item> Items { get; set; } = Array.Empty<Item>();
     }
 }

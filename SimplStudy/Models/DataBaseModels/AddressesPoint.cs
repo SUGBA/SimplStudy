@@ -8,10 +8,10 @@ namespace SimplStudy.Models.DataBaseModels
 
         public string? Address { get; set; }
 
-        public List<Manager> Managers { get; set; } = new List<Manager>();
+        public IEnumerable<Manager> Managers { get; set; } = Array.Empty<Manager>();
 
-        public List<Store> Stores { get; set; } = new List<Store>();
+        public IEnumerable<Store> Stores { get; set; } = Array.Empty<Store>();
 
-        public List<Buyer> Buyers { get; set; } = new List<Buyer>();
+        public IEnumerable<Buyer> Buyers { get; set; } = Array.Empty<Buyer>();
     }
 }

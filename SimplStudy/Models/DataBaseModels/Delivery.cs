@@ -8,6 +8,6 @@
 
         public DateTime DateReceipt { get; set; }
 
-        public List<Item> Items { get; set; } = new List<Item>();
+        public IEnumerable<Item> Items { get; set; } = Array.Empty<Item>();
     }
 }
