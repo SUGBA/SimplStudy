@@ -20,13 +20,7 @@ namespace SimplStudy.Controllers
         public IActionResult All()
         {
             var result = _itemService.GetItems();
-            var options = new JsonSerializerOptions()
-            {
-                Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
-                PropertyNameCaseInsensitive = true,
-                WriteIndented = true
-            };
-            return Json(result, options);
+            return Json(result);
         }
     }
 }

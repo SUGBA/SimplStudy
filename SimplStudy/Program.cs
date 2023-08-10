@@ -6,6 +6,8 @@ using SimplStudy.Repositories;
 using SimplStudy.Repositories.Interfaces;
 using SimplStudy.Services;
 using SimplStudy.Services.Interfaces;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace SimplStudy
 {
@@ -18,7 +20,12 @@ namespace SimplStudy
             string connectionsString = builder.Configuration.GetConnectionString("DefaultConnection")!;
             builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionsString));
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic);
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                options.JsonSerializerOptions.WriteIndented = true;
+            });
 
             builder.Services.AddTransient<IAddressesPointRepository, AddressesPointRepository>();
             builder.Services.AddTransient<IBuyerRepository, BuyerRepository>();
