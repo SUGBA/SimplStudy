@@ -10,16 +10,16 @@ namespace SimplStudy.Controllers
     public class ItemController : Controller
     {
         private readonly IItemService _itemService;
-        
+
         public ItemController(IItemService itemService)
         {
             _itemService = itemService;
         }
-        
+
         [HttpGet]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            var result = _itemService.GetItems();
+            List<Item> result = await _itemService.GetItemsAsync();
             return Json(result);
         }
     }

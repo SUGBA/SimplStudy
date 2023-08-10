@@ -14,7 +14,6 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
-        public List<Store> GetStores() => _context.Stores.ToList();
-
+        public async Task<List<Store>> GetStoresAsync() => await _context.Stores.ToListAsync();
     }
 }

@@ -4,6 +4,6 @@ namespace SimplStudy.Repositories.Interfaces
 {
     public interface IProductRepository
     {
-        public List<Product> GetProducts();
+        public Task<List<Product>> GetProductsAsync();
     }
 }

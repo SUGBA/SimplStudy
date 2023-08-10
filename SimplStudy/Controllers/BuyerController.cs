@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Services.Interfaces;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -9,16 +10,16 @@ namespace SimplStudy.Controllers
     public class BuyerController : Controller
     {
         private readonly IBuyerService _buyerService;
-        
+
         public BuyerController(IBuyerService buyerService)
         {
             _buyerService = buyerService;
         }
-        
+
         [HttpGet]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            var result = _buyerService.GetBuyers();
+            List<Buyer> result = await _buyerService.GetBuyersAsync();
             return Json(result);
         }
     }

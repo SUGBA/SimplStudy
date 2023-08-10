@@ -4,6 +4,6 @@ namespace SimplStudy.Repositories.Interfaces
 {
     public interface IStoreRepository
     {
-        public List<Store> GetStores();
+        public Task<List<Store>> GetStoresAsync();
     }
 }

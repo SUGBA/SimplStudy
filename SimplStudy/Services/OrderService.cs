@@ -1,6 +1,7 @@
 ﻿using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Repositories.Interfaces;
 using SimplStudy.Services.Interfaces;
+using System.Runtime.InteropServices;
 
 namespace SimplStudy.Services
 {
@@ -13,24 +14,24 @@ namespace SimplStudy.Services
             this._orderRepository = _orderRepository;
         }
 
-        public void DelOrder(int id)
+        public async Task DelOrderAsync(int id)
         {
-            _orderRepository.DelOrder(id);
+            await _orderRepository.DelOrder(id);
         }
 
-        public List<Order> GetOrders()
+        public async Task<List<Order>> GetOrdersAsync()
         {
-            return _orderRepository.GetOrders();
+            return await _orderRepository.GetOrders();
         }
 
-        public void UpdateOrder(int ChangebaleOrderId, Order NewOrder)
+        public async Task UpdateOrderAsync(int ChangebaleOrderId, Order NewOrder)
         {
-            _orderRepository.UpdateOrder(ChangebaleOrderId, NewOrder);
+            await _orderRepository.UpdateOrder(ChangebaleOrderId, NewOrder);
         }
 
-        public void AddOrder(Order order)
+        public async Task AddOrderAsync(Order order)
         {
-            _orderRepository.AddOrder(order);
+            await _orderRepository.AddOrder(order);
         }
     }
 }

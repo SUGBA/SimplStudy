@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Services.Interfaces;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -14,11 +15,11 @@ namespace SimplStudy.Controllers
         {
             _storeService = storeService;
         }
-        
+
         [HttpGet]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            var result = _storeService.GetStores();
+            List<Store> result = await _storeService.GetStoresAsync();
             return Json(result);
         }
     }

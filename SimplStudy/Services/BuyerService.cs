@@ -13,6 +13,6 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
-        public List<Buyer> GetBuyers() => _repository.GetBuyers();
+        public async Task<List<Buyer>> GetBuyersAsync() => await _repository.GetBuyersAsync();
     }
 }

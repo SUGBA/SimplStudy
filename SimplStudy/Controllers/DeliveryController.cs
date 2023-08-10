@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Services.Interfaces;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -9,16 +10,16 @@ namespace SimplStudy.Controllers
     public class DeliveryController : Controller
     {
         private readonly IDeliveryService _deliveryService;
-        
+
         public DeliveryController(IDeliveryService deliveryService)
         {
             _deliveryService = deliveryService;
         }
-        
+
         [HttpGet]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            var result = _deliveryService.GetDeliveries();
+            List<Delivery> result = await _deliveryService.GetDeliveriesAsync();
             return Json(result);
         }
     }

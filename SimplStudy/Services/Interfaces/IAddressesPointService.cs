@@ -4,6 +4,6 @@ namespace SimplStudy.Services.Interfaces
 {
     public interface IAddressesPointService
     {
-        public List<AddressesPoint> GetAddressesPoints();
+        public Task<List<AddressesPoint>> GetAddressesPointsAsync();
     }
 }

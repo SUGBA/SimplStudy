@@ -4,6 +4,6 @@ namespace SimplStudy.Services.Interfaces
 {
     public interface IDeliveryService
     {
-        public List<Delivery> GetDeliveries();
+        public Task<List<Delivery>> GetDeliveriesAsync();
     }
 }

@@ -1,4 +1,5 @@
-﻿using SimplStudy.DBContexts;
+﻿using Microsoft.EntityFrameworkCore;
+using SimplStudy.DBContexts;
 using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Repositories.Interfaces;
 
@@ -13,6 +14,6 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
-        public List<Item> GetItems() => _context.Items.ToList();
+        public async Task<List<Item>> GetItemsAsync() => await _context.Items.ToListAsync();
     }
 }

@@ -4,6 +4,6 @@ namespace SimplStudy.Repositories.Interfaces
 {
     public interface IManagerRepository
     {
-        public List<Manager> GetManagers();
+        public Task<List<Manager>> GetManagersAsync();
     }
 }

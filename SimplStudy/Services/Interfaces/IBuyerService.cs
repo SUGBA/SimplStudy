@@ -4,6 +4,6 @@ namespace SimplStudy.Services.Interfaces
 {
     public interface IBuyerService
     {
-        public List<Buyer> GetBuyers();
+        public Task<List<Buyer>> GetBuyersAsync();
     }
 }

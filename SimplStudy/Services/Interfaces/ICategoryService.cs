@@ -4,6 +4,6 @@ namespace SimplStudy.Services.Interfaces
 {
     public interface ICategoryService
     {
-        public List<Category> GetCategories();
+        public Task<List<Category>> GetCategoriesAsync();
     }
 }

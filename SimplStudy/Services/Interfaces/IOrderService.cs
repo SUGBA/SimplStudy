@@ -4,12 +4,12 @@ namespace SimplStudy.Services.Interfaces
 {
     public interface IOrderService
     {
-        public List<Order> GetOrders();
+        public Task<List<Order>> GetOrdersAsync();
 
-        public void AddOrder(Order order);
+        public Task AddOrderAsync(Order order);
 
-        public void UpdateOrder(int ChangebaleOrderId, Order NewOrder);
+        public Task UpdateOrderAsync(int ChangebaleOrderId, Order NewOrder);
 
-        public void DelOrder(int id);
+        public Task DelOrderAsync(int id);
     }
 }

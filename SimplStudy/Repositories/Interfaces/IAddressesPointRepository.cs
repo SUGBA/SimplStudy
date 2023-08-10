@@ -4,6 +4,6 @@ namespace SimplStudy.Repositories.Interfaces
 {
     public interface IAddressesPointRepository
     {
-        public List<AddressesPoint> GetAddressesPoints();
+        public Task<List<AddressesPoint>> GetAddressesPointsAsync();
     }
 }

@@ -4,6 +4,6 @@ namespace SimplStudy.Repositories.Interfaces
 {
     public interface ICategoryRepository
     {
-        public List<Category> GetCategories();
+        public Task<List<Category>> GetCategoriesAsync();
     }
 }

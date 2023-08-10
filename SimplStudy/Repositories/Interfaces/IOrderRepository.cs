@@ -4,7 +4,7 @@ namespace SimplStudy.Repositories.Interfaces
 {
     public interface IOrderRepository
     {
-        public List<Order> GetOrders();
+        public Task<List<Order>> GetOrders();
 
         public Task AddOrder(Order order);
 

@@ -22,26 +22,26 @@ namespace SimplStudy.Controllers
             _context = context;
         }
 
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            var result = _orderService.GetOrders();
+            List<Order> result = await _orderService.GetOrdersAsync();
             return Json(result);
         }
 
-        public IActionResult Del(int id)
+        public async Task<IActionResult> Del(int id)
         {
-            _orderService.DelOrder(id);
+            await _orderService.DelOrderAsync(id);
             return RedirectToAction("All");
         }
 
-        public void Add(Order order)
+        public async Task Add(Order order)
         {
-            _orderService.AddOrder(order);
+            await _orderService.AddOrderAsync(order);
         }
 
-        public void Update(int ChangebaleOrderId, Order NewOrder)
+        public async Task Update(int ChangebaleOrderId, Order NewOrder)
         {
-            _orderService.UpdateOrder(ChangebaleOrderId, NewOrder);
+            await _orderService.UpdateOrderAsync(ChangebaleOrderId, NewOrder);
         }
     }
 }

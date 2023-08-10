@@ -1,4 +1,5 @@
-﻿using SimplStudy.Models.DataBaseModels;
+﻿using Microsoft.VisualBasic;
+using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Repositories.Interfaces;
 using SimplStudy.Services.Interfaces;
 
@@ -13,7 +14,7 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
-        public List<Item> GetItems() => _repository.GetItems();
+        public async Task<List<Item>> GetItemsAsync() => await _repository.GetItemsAsync();
 
     }
 }

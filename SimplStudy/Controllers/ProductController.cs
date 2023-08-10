@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Services.Interfaces;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -9,16 +10,16 @@ namespace SimplStudy.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
-        
+
         public ProductController(IProductService productService)
         {
             _productService = productService;
         }
 
         [HttpGet]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            var result =_productService.GetProducts();
+            List<Product> result = await _productService.GetProductsAsync();
             return Json(result);
         }
     }

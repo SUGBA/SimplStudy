@@ -3,6 +3,7 @@ using SimplStudy.DBContexts;
 using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Repositories.Interfaces;
 using System;
+using System.Linq;
 
 
 namespace SimplStudy.Repositories
@@ -16,25 +17,29 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
-        public List<Order> GetOrders()
+        public async Task<List<Order>> GetOrders()
         {
             //var result = _context.Orders.Include(x => x.Items).ThenInclude(x => x.ActiveProduct).ToList();
-            var result = _context.Orders.ToList();
+            var result = await _context.Orders.ToListAsync();
             return result;
         }
 
         public async Task AddOrder(Order order)
         {
-            if (order is not null && _context.Orders.FirstOrDefault(x => x.Id == order.Id) is null)
+            if (order is not null)
             {
-                await _context.Orders.AddAsync(order);
-                await _context.SaveChangesAsync();
+                var foundOrder = await _context.Orders.FirstOrDefaultAsync(x => x.Id == order.Id);
+                if (foundOrder is null)
+                {
+                    await _context.Orders.AddAsync(order);
+                    await _context.SaveChangesAsync();
+                }
             }
         }
 
         public async Task DelOrder(int id)
         {
-            var order = _context.Orders.FirstOrDefault(o => o.Id == id);
+            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
             if (order is not null)
             {
                 _context.Orders.Remove(order);
@@ -44,7 +49,7 @@ namespace SimplStudy.Repositories
 
         public async Task UpdateOrder(int ChangebaleOrderId, Order NewOrder)
         {
-            var ReceivedOffer = _context.Orders.Where(x => x.Id == ChangebaleOrderId).FirstOrDefault();
+            var ReceivedOffer = await _context.Orders.Where(x => x.Id == ChangebaleOrderId).FirstOrDefaultAsync();
             if (NewOrder is not null && ReceivedOffer is not null)
             {
                 NewOrder.Id = ChangebaleOrderId;

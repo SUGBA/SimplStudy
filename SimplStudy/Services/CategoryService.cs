@@ -13,6 +13,6 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
-        public List<Category> GetCategories() => _repository.GetCategories();
+        public async Task<List<Category>> GetCategoriesAsync() => await _repository.GetCategoriesAsync();
     }
 }

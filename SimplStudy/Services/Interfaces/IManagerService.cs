@@ -4,6 +4,6 @@ namespace SimplStudy.Services.Interfaces
 {
     public interface IManagerService
     {
-        public List<Manager> GetManagers();
+        public Task<List<Manager>> GetManagersAsync();
     }
 }
