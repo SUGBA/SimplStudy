@@ -1,4 +1,5 @@
-﻿using SimplStudy.Models.DataBaseModels;
+﻿using SimplStudy.Models.DataBaseDTOModels;
+using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Repositories.Interfaces;
 using SimplStudy.Services.Interfaces;
 using System.Runtime.InteropServices;
@@ -19,9 +20,10 @@ namespace SimplStudy.Services
             await _orderRepository.DelOrder(id);
         }
 
-        public async Task<List<Order>> GetOrdersAsync()
+        public async Task<List<OrderDTO>> GetOrdersAsync()
         {
-            return await _orderRepository.GetOrders();
+            var orders = await _orderRepository.GetOrders();
+            return orders.Select(x => new OrderDTO(x)).ToList();
         }
 
         public async Task UpdateOrderAsync(int ChangebaleOrderId, Order NewOrder)

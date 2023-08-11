@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SimplStudy.DBContexts;
+using SimplStudy.Models.DataBaseDTOModels;
 using SimplStudy.Models.DataBaseModels;
 using SimplStudy.Services;
 using SimplStudy.Services.Interfaces;
@@ -14,17 +15,14 @@ namespace SimplStudy.Controllers
     {
         private readonly IOrderService _orderService;
 
-        private readonly ApplicationContext _context;
-
-        public OrderController(IOrderService orderService, ApplicationContext context)
+        public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
-            _context = context;
         }
 
         public async Task<IActionResult> All()
         {
-            List<Order> result = await _orderService.GetOrdersAsync();
+            List<OrderDTO> result = await _orderService.GetOrdersAsync();
             return Json(result);
         }
 

@@ -14,6 +14,6 @@
 
         public int CategoryId { get; set; }
 
-        public IEnumerable<Item> Items { get; set; } = Array.Empty<Item>();
+        public List<Item> Items { get; set; } = new List<Item>();
     }
 }

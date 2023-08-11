@@ -19,9 +19,7 @@ namespace SimplStudy.Repositories
 
         public async Task<List<Order>> GetOrders()
         {
-            //var result = _context.Orders.Include(x => x.Items).ThenInclude(x => x.ActiveProduct).ToList();
-            var result = await _context.Orders.ToListAsync();
-            return result;
+            return await _context.Orders.Include(x => x.Items).ThenInclude(x => x.ActiveProduct).ToListAsync();
         }
 
         public async Task AddOrder(Order order)

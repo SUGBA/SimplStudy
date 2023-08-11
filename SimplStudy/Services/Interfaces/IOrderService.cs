@@ -1,10 +1,11 @@
-﻿using SimplStudy.Models.DataBaseModels;
+﻿using SimplStudy.Models.DataBaseDTOModels;
+using SimplStudy.Models.DataBaseModels;
 
 namespace SimplStudy.Services.Interfaces
 {
     public interface IOrderService
     {
-        public Task<List<Order>> GetOrdersAsync();
+        public Task<List<OrderDTO>> GetOrdersAsync();
 
         public Task AddOrderAsync(Order order);
 

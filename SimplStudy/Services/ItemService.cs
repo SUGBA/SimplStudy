@@ -15,6 +15,5 @@ namespace SimplStudy.Services
         }
 
         public async Task<List<Item>> GetItemsAsync() => await _repository.GetItemsAsync();
-
     }
 }
