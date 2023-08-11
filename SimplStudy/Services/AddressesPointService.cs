@@ -13,6 +13,10 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
+        /// <summary>
+        /// Метод асинхронно получающий список 
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<AddressesPoint>> GetAddressesPointsAsync() => await _repository.GetAddressesPointsAsync();
     }
 }
