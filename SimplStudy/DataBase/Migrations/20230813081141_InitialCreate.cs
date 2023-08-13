@@ -4,12 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace SimplStudy.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,9 +57,7 @@ namespace SimplStudy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    TotalPrice = table.Column<int>(type: "integer", nullable: false),
-                    TotalCount = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 },
                 constraints: table =>
                 {
@@ -218,15 +214,15 @@ namespace SimplStudy.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "AdressesPoints",
-                columns: new[] { "Id", "Address" },
-                values: new object[,]
-                {
+              table: "AdressesPoints",
+              columns: new[] { "Id", "Address" },
+              values: new object[,]
+              {
                     { 1, "Ленина, 32" },
                     { 2, "Уссурийская, 47" },
                     { 3, "Братская, 55" },
                     { 4, "Петровсеая, 32" }
-                });
+              });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -251,12 +247,12 @@ namespace SimplStudy.Migrations
 
             migrationBuilder.InsertData(
                 table: "Orders",
-                columns: new[] { "Id", "TotalCount", "TotalPrice" },
+                columns: new[] { "Id" },
                 values: new object[,]
                 {
-                    { 1, 0, 0 },
-                    { 2, 0, 0 },
-                    { 3, 0, 0 }
+                    {1},
+                    {2},
+                    {3}
                 });
 
             migrationBuilder.InsertData(

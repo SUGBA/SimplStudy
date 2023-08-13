@@ -12,8 +12,8 @@ using SimplStudy.DBContexts;
 namespace SimplStudy.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230810131131_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230813081141_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,28 +39,6 @@ namespace SimplStudy.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AdressesPoints");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Ленина, 32"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "Уссурийская, 47"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "Братская, 55"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Address = "Петровсеая, 32"
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Buyer", b =>
@@ -82,38 +60,6 @@ namespace SimplStudy.Migrations
                     b.HasIndex("AddressesPointId");
 
                     b.ToTable("Buyers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AddressesPointId = 1,
-                            Name = "Орлов К.Ч."
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AddressesPointId = 1,
-                            Name = "Шмелев С.С."
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AddressesPointId = 2,
-                            Name = "Синичкин К.П."
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AddressesPointId = 3,
-                            Name = "Ястребов А.А."
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AddressesPointId = 4,
-                            Name = "Курков П.П."
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Category", b =>
@@ -130,23 +76,6 @@ namespace SimplStudy.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Часы наручные"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Фотокамеры"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Процессоры"
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Delivery", b =>
@@ -166,32 +95,6 @@ namespace SimplStudy.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Deliveries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateOrder = new DateTime(2023, 8, 8, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2278),
-                            DateReceipt = new DateTime(2023, 8, 10, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2284)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateOrder = new DateTime(2023, 8, 7, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2285),
-                            DateReceipt = new DateTime(2023, 8, 10, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2285)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateOrder = new DateTime(2023, 8, 6, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2286),
-                            DateReceipt = new DateTime(2023, 8, 11, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2287)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateOrder = new DateTime(2023, 8, 5, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2287),
-                            DateReceipt = new DateTime(2023, 8, 12, 13, 11, 31, 212, DateTimeKind.Utc).AddTicks(2288)
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Item", b =>
@@ -225,80 +128,6 @@ namespace SimplStudy.Migrations
                     b.HasIndex("SellerId");
 
                     b.ToTable("Items");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            BuyerId = 1,
-                            SellerId = 1,
-                            DeliveryId = 1,
-                            Count = 2,
-                            OrderId = 1
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            BuyerId = 1,
-                            SellerId = 1,
-                            DeliveryId = 2,
-                            Count = 2,
-                            OrderId = 1
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            BuyerId = 2,
-                            SellerId = 1,
-                            DeliveryId = 1,
-                            Count = 3,
-                            OrderId = 2
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            BuyerId = 2,
-                            SellerId = 2,
-                            DeliveryId = 1,
-                            Count = 4,
-                            OrderId = 2
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            BuyerId = 3,
-                            SellerId = 2,
-                            DeliveryId = 2,
-                            Count = 1,
-                            OrderId = 3
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            BuyerId = 3,
-                            SellerId = 2,
-                            DeliveryId = 2,
-                            Count = 1,
-                            OrderId = 3
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            BuyerId = 3,
-                            SellerId = 3,
-                            DeliveryId = 3,
-                            Count = 1,
-                            OrderId = 3
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            BuyerId = 3,
-                            SellerId = 4,
-                            DeliveryId = 4,
-                            Count = 2,
-                            OrderId = 3
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Manager", b =>
@@ -323,36 +152,6 @@ namespace SimplStudy.Migrations
                     b.HasIndex("AddressesPointId");
 
                     b.ToTable("Managers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AddressesPointId = 1,
-                            HoursProduction = 120,
-                            Name = "Петров А.А."
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AddressesPointId = 2,
-                            HoursProduction = 220,
-                            Name = "Сидоров А.Б."
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AddressesPointId = 3,
-                            HoursProduction = 50,
-                            Name = "Репин Б.В."
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AddressesPointId = 4,
-                            HoursProduction = 90,
-                            Name = "Жабин У.А."
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Order", b =>
@@ -363,35 +162,9 @@ namespace SimplStudy.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("TotalCount")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            TotalCount = 0,
-                            TotalPrice = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            TotalCount = 0,
-                            TotalPrice = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            TotalCount = 0,
-                            TotalPrice = 0
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Product", b =>
@@ -419,40 +192,6 @@ namespace SimplStudy.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            Name = "COROS Apex 46mm",
-                            Price = 2300,
-                            Weight = 30f
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 1,
-                            Name = "Garmin Fenix 7",
-                            Price = 4400,
-                            Weight = 40f
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 2,
-                            Name = "Garmin Forerunner 945",
-                            Price = 5300,
-                            Weight = 41f
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 2,
-                            Name = "COROS Pace 2",
-                            Price = 1820,
-                            Weight = 33f
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Seller", b =>
@@ -469,28 +208,6 @@ namespace SimplStudy.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sellers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Белов Ч.Ч."
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Чернов К.Т."
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Краснов Х.Т."
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Корнев М.М."
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Store", b =>
@@ -517,36 +234,6 @@ namespace SimplStudy.Migrations
                     b.HasIndex("SellerId");
 
                     b.ToTable("Stores");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AddressesPointId = 1,
-                            Name = "Shop1",
-                            SellerId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AddressesPointId = 2,
-                            Name = "Shop2",
-                            SellerId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AddressesPointId = 3,
-                            Name = "Shop3",
-                            SellerId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AddressesPointId = 4,
-                            Name = "Shop4",
-                            SellerId = 4
-                        });
                 });
 
             modelBuilder.Entity("SimplStudy.Models.DataBaseModels.Buyer", b =>
