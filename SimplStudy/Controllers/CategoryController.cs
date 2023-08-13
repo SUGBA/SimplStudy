@@ -16,6 +16,12 @@ namespace SimplStudy.Controllers
             _categoryService = categoryService;
         }
 
+        /// <summary>
+        /// Метод, асинхронно обращающийся к соответствующему сервису для получения списка категорий товаров.
+        /// Ответ отправляется JSON'ом.
+        /// Установлен единый формат сериализации json файлов в проекте(см.Program.cs).
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> All()
         {

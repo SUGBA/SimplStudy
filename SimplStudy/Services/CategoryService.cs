@@ -13,6 +13,10 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
+        /// <summary>
+        /// Метод, асинхронно обращающийся к соответствующему репозиторию для получения список категорий товаров.
+        /// </summary>
+        /// <returns> Список категорий товаров </returns>
         public async Task<List<Category>> GetCategoriesAsync() => await _repository.GetCategoriesAsync();
     }
 }

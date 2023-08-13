@@ -16,6 +16,12 @@ namespace SimplStudy.Controllers
             _itemService = itemService;
         }
 
+        /// <summary>
+        /// Метод, асинхронно обращающийся к соответствующему сервису для получения списка проданных товаров.
+        /// Ответ отправляется JSON'ом.
+        /// Установлен единый формат сериализации json файлов в проекте(см.Program.cs).
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> All()
         {

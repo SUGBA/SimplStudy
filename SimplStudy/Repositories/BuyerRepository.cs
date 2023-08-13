@@ -14,6 +14,10 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
+        /// <summary>
+        /// Метод, асинхронно получающий список покупателей.
+        /// </summary>
+        /// <returns>Список покупателей</returns>
         public async Task<List<Buyer>> GetBuyersAsync() => await _context.Buyers.ToListAsync();
     }
 }

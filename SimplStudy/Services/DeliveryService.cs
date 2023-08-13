@@ -13,6 +13,10 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
+        /// <summary>
+        /// Метод, асинхронно обращающийся к соответствующему репозиторию для получения списка описаний доставок.
+        /// </summary>
+        /// <returns> Список описаний доставок</returns>
         public async Task<List<Delivery>> GetDeliveriesAsync() => await _repository.GetDeliveriesAsync();
     }
 }

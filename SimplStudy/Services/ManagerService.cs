@@ -13,6 +13,10 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
+        /// <summary>
+        /// Метод, асинхронно обращающийся к соответствующему репозиторию для получения списка менеджеров.
+        /// </summary>
+        /// <returns> Список менеджеров</returns>
         public async Task<List<Manager>> GetManagersAsync() => await _repository.GetManagersAsync();
     }
 }

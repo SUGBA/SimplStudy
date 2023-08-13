@@ -14,6 +14,10 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
+        /// <summary>
+        /// Метод, асинхронно получающий список пунктов выдачи товаров.
+        /// </summary>
+        /// <returns>Список пунктов выдачи товаров</returns>
         public async Task<List<AddressesPoint>> GetAddressesPointsAsync() => await _context.AdressesPoints.ToListAsync();
     }
 }

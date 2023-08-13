@@ -14,6 +14,10 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
+        /// <summary>
+        /// Метод, асинхронно получающий список менеджеров (работники пунктов выдачи).
+        /// </summary>
+        /// <returns>Список менеджеров</returns>
         public async Task<List<Manager>> GetManagersAsync() => await _context.Managers.ToListAsync();
     }
 }

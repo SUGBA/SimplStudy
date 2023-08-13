@@ -13,6 +13,10 @@ namespace SimplStudy.Services
             _repository = repository;
         }
 
+        /// <summary>
+        /// Метод, асинхронно обращающийся к соответствующему репозиторию для получения списка товаров.
+        /// </summary>
+        /// <returns> Список товаров</returns>
         public async Task<List<Product>> GetProductsAsync() => await _repository.GetProductsAsync();
     }
 }

@@ -14,6 +14,10 @@ namespace SimplStudy.Repositories
             this._context = _context;
         }
 
+        /// <summary>
+        /// Метод, асинхронно получающий список товаров.
+        /// </summary>
+        /// <returns>Список товаров</returns>
         public async Task<List<Product>> GetProductsAsync() => await _context.Products.ToListAsync();
     }
 }

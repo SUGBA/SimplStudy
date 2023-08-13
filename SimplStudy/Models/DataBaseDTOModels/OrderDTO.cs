@@ -9,7 +9,6 @@ namespace SimplStudy.Models.DataBaseDTOModels
         /// </summary>
         public int Id { get; set; }
 
-
         /// <summary>
         /// Поле характеризующее общую стоимость всех товаров в заказе. 
         /// </summary>
