@@ -36,11 +36,11 @@ namespace SimplStudy.Controllers
         /// Метод, асинхронно обращающийся к соответствующему сервису для удаления заказа.
         /// После удаления происходит переадресация на список заказов.
         /// </summary>
-        /// <param name="id"> Идентификатор удаляемого элемента </param>
+        /// <param name="Id"> Идентификатор удаляемого элемента </param>
         /// <returns></returns>
-        public async Task<IActionResult> Del(int id)
+        public async Task<IActionResult> Del(int Id)
         {
-            await _orderService.DelOrderAsync(id);
+            await _orderService.DelOrderAsync(Id);
             return RedirectToAction("All");
         }
 
@@ -48,11 +48,11 @@ namespace SimplStudy.Controllers
         /// Метод, асинхронно обращающийся к соответствующему сервису для добавления заказа.
         /// После удаления происходит переадресация на список заказов.
         /// </summary>
-        /// <param name="order"> Добавляемый элемент </param>
+        /// <param name="NewOrder"> Добавляемый элемент </param>
         /// <returns></returns>
-        public async Task<IActionResult> Add(Order order)
+        public async Task<IActionResult> Add(Order NewOrder)
         {
-            await _orderService.AddOrderAsync(order);
+            await _orderService.AddOrderAsync(NewOrder);
             return RedirectToAction("All");
         }
 

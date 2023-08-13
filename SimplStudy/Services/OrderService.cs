@@ -18,11 +18,11 @@ namespace SimplStudy.Services
         /// <summary>
         /// Метод, асинхронно обращающийся к соответствующему репозиторию для удаления заказа с идентичным идентификатором.
         /// </summary>
-        /// <param name="id"> Идентификатор удаляемого элемента </param>
+        /// <param name="Id"> Идентификатор удаляемого элемента </param>
         /// <returns></returns>
-        public async Task DelOrderAsync(int id)
+        public async Task DelOrderAsync(int Id)
         {
-            await _orderRepository.DelOrder(id);
+            await _orderRepository.DelOrder(Id);
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace SimplStudy.Services
         /// <summary>
         /// Метод, асинхронно обращающийся к соответствующему репозиторию для добавления заказа.
         /// </summary>
-        /// <param name="order"> Добавляемый заказ </param>
+        /// <param name="NewOrder"> Добавляемый заказ </param>
         /// <returns></returns>
-        public async Task AddOrderAsync(Order order)
+        public async Task AddOrderAsync(Order NewOrder)
         {
-            await _orderRepository.AddOrder(order);
+            await _orderRepository.AddOrder(NewOrder);
         }
     }
 }
