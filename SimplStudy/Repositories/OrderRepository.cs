@@ -34,16 +34,16 @@ namespace SimplStudy.Repositories
         /// В первом блоке if, проверяется, что новый заказ отличен от null.
         /// Во втором блоке if, проверяется отсутствие заказа с идентичным идентификатором.
         /// </summary>
-        /// <param name="NewOrder"> Добавляемый заказ </param>
+        /// <param name="newOrder"> Добавляемый заказ </param>
         /// <returns></returns>
-        public async Task AddOrder(Order NewOrder)
+        public async Task AddOrder(Order newOrder)
         {
-            if (NewOrder is not null)
+            if (newOrder is not null)
             {
-                var foundOrder = await _context.Orders.FirstOrDefaultAsync(x => x.Id == NewOrder.Id);
+                var foundOrder = await _context.Orders.FirstOrDefaultAsync(x => x.Id == newOrder.Id);
                 if (foundOrder is null)
                 {
-                    await _context.Orders.AddAsync(NewOrder);
+                    await _context.Orders.AddAsync(newOrder);
                     await _context.SaveChangesAsync();
                 }
             }
@@ -53,11 +53,11 @@ namespace SimplStudy.Repositories
         /// Метод, асинхронно удаляющий заказ из списка заказов.
         /// В первом блоке if, проверяется существования заказа с идентичным идентификатором.
         /// </summary>
-        /// <param name="Id"> Идентификатор удаляемого заказа </param>
+        /// <param name="id"> Идентификатор удаляемого заказа </param>
         /// <returns></returns>
-        public async Task DelOrder(int Id)
+        public async Task DelOrder(int id)
         {
-            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == Id);
+            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
             if (order is not null)
             {
                 _context.Orders.Remove(order);
@@ -70,16 +70,16 @@ namespace SimplStudy.Repositories
         /// В первом блоке if, проверяется что существовует заказ с идентичным идентификатором и что заменяемый заказ не null.
         /// Заменяющему заказу присваивается идентификатор заменяемого заказа.
         /// </summary>
-        /// <param name="ChangebaleOrderId"> Идентификатор заменяемого элемента </param>
-        /// <param name="NewOrder"> Заменяющий экземпляр заказа </param>
+        /// <param name="changebaleOrderId"> Идентификатор заменяемого элемента </param>
+        /// <param name="newOrder"> Заменяющий экземпляр заказа </param>
         /// <returns></returns>
-        public async Task UpdateOrder(int ChangebaleOrderId, Order NewOrder)
+        public async Task UpdateOrder(int changebaleOrderId, Order newOrder)
         {
-            var receivedOffer = await _context.Orders.Where(x => x.Id == ChangebaleOrderId).FirstOrDefaultAsync();
-            if (NewOrder is not null && receivedOffer is not null)
+            var receivedOffer = await _context.Orders.Where(x => x.Id == changebaleOrderId).FirstOrDefaultAsync();
+            if (newOrder is not null && receivedOffer is not null)
             {
-                NewOrder.Id = ChangebaleOrderId;
-                _context.Entry(receivedOffer).CurrentValues.SetValues(NewOrder);
+                newOrder.Id = changebaleOrderId;
+                _context.Entry(receivedOffer).CurrentValues.SetValues(newOrder);
 
                 await _context.SaveChangesAsync();
             }

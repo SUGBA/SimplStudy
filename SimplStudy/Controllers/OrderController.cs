@@ -36,11 +36,11 @@ namespace SimplStudy.Controllers
         /// Метод, асинхронно обращающийся к соответствующему сервису для удаления заказа.
         /// После удаления происходит переадресация на список заказов.
         /// </summary>
-        /// <param name="Id"> Идентификатор удаляемого элемента </param>
+        /// <param name="id"> Идентификатор удаляемого элемента </param>
         /// <returns></returns>
-        public async Task<IActionResult> Del(int Id)
+        public async Task<IActionResult> Del(int id)
         {
-            await _orderService.DelOrderAsync(Id);
+            await _orderService.DelOrderAsync(id);
             return RedirectToAction("All");
         }
 
@@ -48,11 +48,11 @@ namespace SimplStudy.Controllers
         /// Метод, асинхронно обращающийся к соответствующему сервису для добавления заказа.
         /// После удаления происходит переадресация на список заказов.
         /// </summary>
-        /// <param name="NewOrder"> Добавляемый элемент </param>
+        /// <param name="newOrder"> Добавляемый элемент </param>
         /// <returns></returns>
-        public async Task<IActionResult> Add(Order NewOrder)
+        public async Task<IActionResult> Add(Order newOrder)
         {
-            await _orderService.AddOrderAsync(NewOrder);
+            await _orderService.AddOrderAsync(newOrder);
             return RedirectToAction("All");
         }
 
@@ -60,12 +60,12 @@ namespace SimplStudy.Controllers
         /// Метод, асинхронно обращающийся к соответствующему сервису для замены заказа.
         /// После удаления происходит переадресация на список заказов.
         /// </summary>
-        /// <param name="ChangebaleOrderId"> Идентификатор заменяемого элемента </param>
-        /// <param name="NewOrder"> Заменяющий экземпляр заказа </param>
+        /// <param name="changebaleOrderId"> Идентификатор заменяемого элемента </param>
+        /// <param name="newOrder"> Заменяющий экземпляр заказа </param>
         /// <returns></returns>
-        public async Task<IActionResult> Update(int ChangebaleOrderId, Order NewOrder)
+        public async Task<IActionResult> Update(int changebaleOrderId, Order newOrder)
         {
-            await _orderService.UpdateOrderAsync(ChangebaleOrderId, NewOrder);
+            await _orderService.UpdateOrderAsync(changebaleOrderId, newOrder);
             return RedirectToAction("All");
         }
     }

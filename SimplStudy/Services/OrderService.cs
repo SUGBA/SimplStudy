@@ -18,11 +18,11 @@ namespace SimplStudy.Services
         /// <summary>
         /// Метод, асинхронно обращающийся к соответствующему репозиторию для удаления заказа с идентичным идентификатором.
         /// </summary>
-        /// <param name="Id"> Идентификатор удаляемого элемента </param>
+        /// <param name="id"> Идентификатор удаляемого элемента </param>
         /// <returns></returns>
-        public async Task DelOrderAsync(int Id)
+        public async Task DelOrderAsync(int id)
         {
-            await _orderRepository.DelOrder(Id);
+            await _orderRepository.DelOrder(id);
         }
 
         /// <summary>
@@ -40,22 +40,22 @@ namespace SimplStudy.Services
         /// <summary>
         /// Метод, асинхронно обращающийся к соответствующему репозиторию для обновления заказа с идентичным идентификатором.
         /// </summary>
-        /// <param name="ChangebaleOrderId"> Идентификатор заменяемого элемента </param>
-        /// <param name="NewOrder"> Заменяющий экземпляр заказа </param>
+        /// <param name="changebaleOrderId"> Идентификатор заменяемого элемента </param>
+        /// <param name="newOrder"> Заменяющий экземпляр заказа </param>
         /// <returns></returns>
-        public async Task UpdateOrderAsync(int ChangebaleOrderId, Order NewOrder)
+        public async Task UpdateOrderAsync(int changebaleOrderId, Order newOrder)
         {
-            await _orderRepository.UpdateOrder(ChangebaleOrderId, NewOrder);
+            await _orderRepository.UpdateOrder(changebaleOrderId, newOrder);
         }
 
         /// <summary>
         /// Метод, асинхронно обращающийся к соответствующему репозиторию для добавления заказа.
         /// </summary>
-        /// <param name="NewOrder"> Добавляемый заказ </param>
+        /// <param name="newOrder"> Добавляемый заказ </param>
         /// <returns></returns>
-        public async Task AddOrderAsync(Order NewOrder)
+        public async Task AddOrderAsync(Order newOrder)
         {
-            await _orderRepository.AddOrder(NewOrder);
+            await _orderRepository.AddOrder(newOrder);
         }
     }
 }
