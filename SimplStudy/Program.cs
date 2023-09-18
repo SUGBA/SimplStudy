@@ -20,6 +20,9 @@ namespace SimplStudy
             string connectionsString = builder.Configuration.GetConnectionString("DefaultConnection")!;
             builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionsString));
 
+
+            //test
+
             builder.Services.AddControllersWithViews().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic);
