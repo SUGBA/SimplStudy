@@ -21,7 +21,7 @@ namespace SimplStudy
             builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionsString));
 
 
-            //test
+            //test2
 
             builder.Services.AddControllersWithViews().AddJsonOptions(options =>
             {
